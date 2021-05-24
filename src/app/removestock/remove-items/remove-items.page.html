@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Remove Items from {{ selectedProduct.name}}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button [disabled]="!form.valid" (click)="onRemoveItems()">
+        <ion-icon name="checkmark-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Enter email address:</ion-label>
+            <ion-input type="text" formControlName="email"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row text-center *ngIf="!form.get('email').valid && form.get('email').touched">
+        <ion-col>
+          <ion-item>
+            <p style="color: red; text-align: center;">Please enter a valid email address</p>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Number of Items:</ion-label>
+            <ion-input type="number" formControlName="items"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row text-center *ngIf="!form.get('items').valid && form.get('items').touched">
+        <ion-col>
+          <ion-item>
+            <p style="color: red; text-align: center;">Please enter a valid value, larger than 0!</p>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Price per Item:</ion-label>
+            <ion-input type="number" formControlName="price"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row text-center *ngIf="!form.get('price').valid && form.get('price').touched">
+        <ion-col>
+          <ion-item>
+            <p style="color: red; text-align: center;">Please enter a valid price, larger than 0!</p>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
+

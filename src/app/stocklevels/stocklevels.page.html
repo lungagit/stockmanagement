@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Stock Levels and Average Stock price </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item style="font-weight: bold;">
+      <ion-label>PRODUCT</ion-label>
+      <ion-label>LEVELS</ion-label>
+      <ion-label>AVERAGE PRICE</ion-label>
+    </ion-item>
+    <ion-item *ngFor="let product of products">
+      <ion-label>{{ product.name }}</ion-label>
+      <ion-label>{{ product.items }}</ion-label>
+      <ion-label>{{ product.price | currency: 'R'}}</ion-label>
+    </ion-item>
+  
+  </ion-list>
+</ion-content>

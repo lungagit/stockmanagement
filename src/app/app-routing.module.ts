@@ -4,13 +4,21 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'addstock',
     pathMatch: 'full'
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  }
+    path: 'addstock',
+    loadChildren: () => import('./addstock/addstock.module').then( m => m.AddstockPageModule)
+  },
+  {
+    path: 'removestock',
+    loadChildren: () => import('./removestock/removestock.module').then( m => m.RemovestockPageModule)
+  },
+  {
+    path: 'stocklevels',
+    loadChildren: () => import('./stocklevels/stocklevels.module').then( m => m.StocklevelsPageModule)
+  },
 ];
 
 @NgModule({
